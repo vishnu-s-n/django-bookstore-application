@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block body_block%}
+
+
+<div class="container">
+    <div class="row">
+        
+        
+        <div class="col-4">
+            
+            
+        </div>
+        <div class="col-4 shadow p-3 mb-5 bg-body rounded">
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-outline-dark mt-auto">Add</button>
+
+
+            </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+       
+</div>
+{%endblock%}

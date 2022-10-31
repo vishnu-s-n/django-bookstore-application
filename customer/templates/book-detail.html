@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+{%block body_block%}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="col mb-5">
+                <div class="card h-90">
+                    <!-- Product image-->
+                    <img class="card-img-top " src="{{book.image.url}}" alt="..." height="500px" />
+                </div>
+
+            </div>
+        </div>
+        <div class="col-6">
+            <!-- Product name-->
+            <div class="text-left mt-2 mb-4">
+                <h4 class="fw-bolder">{{book.book_name}}</h4>
+            </div>
+            <div class="mb-3">
+                <!-- Product price-->
+                <h6 class="fw-bolder mb-3">₹{{book.price}}</h6>
+            </div>
+
+            <div>
+                <h5 class="fw-bolder mb-3"> Category {{book.category}}</h5>
+
+            </div>
+            <div>
+                <h6 class="fw-bolder mb-3">Description {{book.description}}</h6>
+
+            </div>
+            
+            <div class="mb-3">
+                <!-- Product price-->
+                <h6 class="fw-bolder mb-3">Author <a href="https://en.wikipedia.org/wiki/Priyanka_Chopra" class="text-decoration-none">{{book.author}}</a></h6>
+                
+            </div>
+            <div class="mb-3">
+                <!-- Product price-->
+                <h6 class="fw-bolder mb-3">Publisher {{book.publisher}}</h6>
+            </div>
+            
+            
+            <div class="text-left"><a class="btn btn-outline-dark mt-auto" href="{% url 'addto-cart' book.id %}">Wishlist </a></div>
+
+
+        </div>
+
+    </div>
+</div>
+{%endblock%}

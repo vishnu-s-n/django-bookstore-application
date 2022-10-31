@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+        {% for cart in carts %}
+        <div class="col-12">
+            <table class="table table-hover shadow p-3 mb-5 bg-body rounded">
+                <tr>
+                    <th>Book</th>
+
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                    
+                    
+                </tr>
+                <tr>
+                    <td >
+                        <div class="card " style="width: 8.5rem";>
+                            <!-- Product image-->
+                            
+                            <img class="card" src="{{cart.book.image.url}}" alt="..."  />     
+                            
+                        </div>
+                        <div>
+                            <a href="{%url 'removeitem' cart.id%}" class="btn btn-outline-dark mt-auto btn-sm mb-3">Remove</a>
+                            {% if cart.status != "order-placed"%}
+                            <a href="{%url 'place-order' cart.id cart.book.id%}" class="btn btn-outline-dark mt-auto btn-sm mb-3">Buynow</a>
+
+                            {%endif%}
+
+                        </div>
+                        
+                        
+                        
+                    </td>
+                    <td>
+                       <p class="">{{cart.book.price}}</p> 
+                    </td>
+                    <td>
+                        <p class="">{{cart.qty}}</p> 
+                     </td>
+                     <td>
+                        <p class="">{{cart.status}}</p> 
+                     </td>
+                     
+                    
+                </tr>
+                
+                
+            </table>
+        </div>
+        
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

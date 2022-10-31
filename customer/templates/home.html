@@ -1,0 +1,105 @@
+{%extends 'base.html' %}
+{%block body_block%}
+
+<div class="container-fluid ">
+    <div class="row  mt-4">
+        <div class="col-12 mb-5">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active " data-bs-interval="1500">
+                    <img src="/customer/static/assets/book1.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/customer/static/assets/book2.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="1500">
+                    <img src="/customer/static/assets/book3.jpg" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="container px-4 px-lg-5 mt-5">
+
+
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-3 justify-content-center">
+        {%for book in books%}
+        <div class="col mb-5">
+            <div class="card h-40 ">
+                <!-- Product image-->
+                <img class="card-img-top" src="{{book.image.url}}" alt="..." height="300px" />
+                <!-- Product details-->
+                <div class="card-body p-4 mb-7">
+                    <div class="text-center">
+                        <!-- Product name-->
+                        <h5 class="fw-bolder">{{book.book_name}}</h5>
+                        <h5 class="fw-bolder">{{book.category}}</h5>
+                        <!-- Product price-->
+                        ₹{{book.price}}
+                    </div>
+                </div>
+                <!-- Product actions-->
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'book-detail' book.id%}">View </a></div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+
+    <div class="row">
+        <h1 class="text-center mb-3 fw-bold">Why Shop With Us</h1>
+        <p><u class="u-dark"></u></p>
+        <div class="col-sm-4">
+          <div class="card bg-dark">
+            <div class="card-body">
+                <img class="mx-auto d-block mb-2" src="static/assets/del.png" alt="">
+              <h5 class="card-title text-white text-center">Fast Delivery</h5>
+              <p class="card-text text-white text-center">You get exactly what you ordered Fast amd Free delivery.</p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card bg-dark">
+            <div class="card-body">
+                <img class="mx-auto d-block mb-2" src="static/assets/free.png" alt="">
+              <h5 class="card-title text-white text-center">Free Shipping</h5>
+              <p class="card-text text-white text-center">Available to all customers on qualifying orders over ₹100.</p>
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4 mb-4">
+            <div class="card bg-dark">
+              <div class="card-body">
+                  <img class="mx-auto d-block mb-2" src="static/assets/best.png" alt="">
+                <h5 class="card-title text-white text-center">Best Quality</h5>
+                <p class="card-text text-white text-center">We assured best quality products for all your orders</p>
+               
+              </div>
+            </div>
+          </div>
+        
+
+
+      </div>
+
+
+</div>
+
+{%endblock%}
